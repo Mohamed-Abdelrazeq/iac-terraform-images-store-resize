@@ -3,7 +3,7 @@ resource "aws_lambda_function" "my_lambda" {
   function_name    = "my_lambda"
   handler          = "bootstrap"
   runtime          = "provided.al2"
-  role             = aws_iam_role.my_lambda_role.arn
+  role             = aws_iam_role.upload_lambda_role.arn
   filename         = "lambda.zip"
   architectures    = ["arm64"]
   source_code_hash = filebase64sha256("lambda.zip")
