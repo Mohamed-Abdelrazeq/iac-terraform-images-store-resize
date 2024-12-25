@@ -76,6 +76,7 @@ IAM Roles and Policies
 - Lambda Function: Processes messages from the SQS queue to resize images.
 - API Gateway: Connect the upload lambda function to the internet to receive requests
 
-## License
+## Lambda Function Repositories
 
-This project is licensed under the MIT License
+- [Upload Lambda Function](https://github.com/Mohamed-Abdelrazeq/go-image-uploader): Repository containing the code for the Lambda function that handles image uploads.
+- [Resize Lambda Function](https://github.com/Mohamed-Abdelrazeq/go-image-resizer): Repository containing the code for the Lambda function that handles image resizing.
