@@ -4,9 +4,9 @@ resource "aws_lambda_function" "upload_lambda" {
   handler          = "bootstrap"
   runtime          = "provided.al2"
   role             = aws_iam_role.upload_lambda_role.arn
-  filename         = "upload-image.zip"
+  filename         = "upload-lambda.zip"
   architectures    = ["arm64"]
-  source_code_hash = filebase64sha256("upload-image.zip")
+  source_code_hash = filebase64sha256("upload-lambda.zip")
   environment {
     variables = {
       "BUCKET_NAME" : aws_s3_bucket.uploaded-images.bucket

@@ -39,6 +39,24 @@ resource "aws_iam_policy" "s3_read_put_object_policy" {
         Effect   = "Allow"
         # Allow Lambda to put objects in the resized-images bucket
         Resource = ["${aws_s3_bucket.resized-images.arn}/*"]
+      },
+       {
+        Effect = "Allow"
+        Action = [
+          "sqs:ReceiveMessage",
+          "sqs:DeleteMessage",
+          "sqs:GetQueueAttributes"
+        ]
+        Resource = aws_sqs_queue.resizing_queue.arn
+      },
+       {
+        Effect = "Allow"
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+        Resource = "arn:aws:logs:*:*:*"
       }
     ]
   })
